@@ -19,7 +19,7 @@ $(document).ready(function() {
     if(checkscroll == 0){
       //  $(".container").hide();
     }
-    $("#sectionToNavigate").hide(); 
+    $("#sectionToNavigate").hide();
    // $(".closeclass, .close-container, .close-btn").hide();
    fetch('./blog.json')
    .then(response => response.json())
@@ -91,7 +91,7 @@ $(document).ready(function() {
                        </div>
                    `;
                    boxclassinfinite.removeAttribute('hidden');
-                   boxclassinfinite.classList.remove('hide-animation'); 
+                   boxclassinfinite.classList.remove('hide-animation');
 
                    // Optional: Close the .boxclassinfinite div when clicking outside of it
                    document.addEventListener('click', function(e) {
@@ -114,11 +114,15 @@ $(document).ready(function() {
        });
    })
    .catch(error => console.error('Error loading blog posts:', error));
-   
+
 });
 
 (function () {
-    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+    var requestAnimationFrame = window.requestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
             window.setTimeout(callback, 1000 / 60);
         };
     window.requestAnimationFrame = requestAnimationFrame;
@@ -154,13 +158,15 @@ function Terrain(options) {
         power = Math.pow(2, Math.ceil(Math.log(width) / (Math.log(2))));
 
     // set the start height and end height for the terrain
-    this.points[0] = this.mHeight;//(this.mHeight - (Math.random() * this.mHeight / 2)) - displacement;
+    this.points[0] = this.mHeight;
     this.points[power] = this.points[0];
 
     // create the rest of the points
     for (var i = 1; i < power; i *= 2) {
         for (var j = (power / i) / 2; j < power; j += power / i) {
-            this.points[j] = ((this.points[j - (power / i) / 2] + this.points[j + (power / i) / 2]) / 2) + Math.floor(Math.random() * -displacement + displacement);
+            this.points[j] = ((this.points[j - (power / i) / 2] +
+                this.points[j + (power / i) / 2]) / 2) +
+                Math.floor(Math.random() * -displacement + displacement);
         }
         displacement *= 0.6;
     }
@@ -172,7 +178,7 @@ Terrain.prototype.update = function () {
     // draw the terrain
     this.terCtx.clearRect(0, 0, width, height);
     this.terCtx.fillStyle = this.fillStyle;
-    
+
     if (new Date().getTime() > this.lastScroll + this.scrollDelay) {
         this.lastScroll = new Date().getTime();
         this.points.push(this.points.shift());
@@ -232,7 +238,7 @@ ShootingStar.prototype.reset = function () {
     this.len = (Math.random() * 80) + 10;
     this.speed = (Math.random() * 10) + 6;
     this.size = (Math.random() * 1) + 0.1;
-    // this is used so the shooting stars arent constant
+    // wait time so they’re not constant
     this.waitTime = new Date().getTime() + (Math.random() * 3000) + 500;
     this.active = false;
 }
@@ -267,14 +273,16 @@ for (var i = 0; i < height; i++) {
     }));
 }
 
-// Add 2 shooting stars that just cycle.
+// Add shooting stars + terrain layers
 entities.push(new ShootingStar());
 entities.push(new ShootingStar());
-entities.push(new Terrain({mHeight : (height/2)-120}));
-entities.push(new Terrain({displacement : 120, scrollDelay : 50, fillStyle : "#282828", mHeight : (height/2)-60}));
-entities.push(new Terrain({displacement : 100, scrollDelay : 20, fillStyle : "#1d2021", mHeight : height/2}));
+entities.push(new Terrain({ mHeight: (height / 2) - 120 }));
+entities.push(new Terrain({ displacement: 120, scrollDelay: 50, fillStyle: "#282828", mHeight: (height / 2) - 60 }));
+entities.push(new Terrain({ displacement: 100, scrollDelay: 20, fillStyle: "#1d2021", mHeight: height / 2 }));
 
 //animate background
+var animationId;
+
 function animate() {
     bgCtx.fillStyle = '#1d2021';
     bgCtx.fillRect(0, 0, width, height);
@@ -282,24 +290,28 @@ function animate() {
     bgCtx.strokeStyle = '#ffffff';
 
     var entLen = entities.length;
-
     while (entLen--) {
         entities[entLen].update();
     }
-    requestAnimationFrame(animate);
+
+    animationId = requestAnimationFrame(animate);
 }
 animate();
 
+// Stop after 5 seconds
+setTimeout(() => {
+    cancelAnimationFrame(animationId);
+}, 7000);
 
 // cursor
 
 document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
     i = document.getElementById("cursor3");
-    t.style.left = n.clientX + "px", 
-    t.style.top = n.clientY + "px", 
-    e.style.left = n.clientX + "px", 
-    e.style.top = n.clientY + "px", 
-    i.style.left = n.clientX + "px", 
+    t.style.left = n.clientX + "px",
+    t.style.top = n.clientY + "px",
+    e.style.left = n.clientX + "px",
+    e.style.top = n.clientY + "px",
+    i.style.left = n.clientX + "px",
     i.style.top = n.clientY + "px"
 });
 var t = document.getElementById("cursor"),
@@ -317,7 +329,7 @@ for (var r = document.querySelectorAll(".hover-target"), a = r.length - 1; a >= 
 }
 function o(t) {
     t.addEventListener("mouseover", n), t.addEventListener("mouseout", s)
-} 
+}
 
 
 document.getElementById("downloadCV").addEventListener("mouseover", function() {
@@ -340,20 +352,24 @@ document.getElementById('downloadCV').addEventListener('click', function() {
 
 document.querySelectorAll('.chevron').forEach(function(chevron) {
     chevron.addEventListener('click', function() {
+        $("#sectionToNavigate").fadeIn(500);
+          $("#boxcontainer").fadeOut(50);
+           $("#boxcontainer").hide();
+           hasClickedChevron = true; // Set the flag to true after
         $('.boxclass3').show();
         $(".chevron").hide();
-      $("#sectionToNavigate").show(); 
+      $("#sectionToNavigate").show();
       var target = this.getAttribute('data-scroll-to');
       var targetElement = document.querySelector(target);
       if (targetElement) {
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 490;
-    
+
         const scrollPromise = new Promise(resolve => {
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
             });
-            
+
             // Similar scroll end detection as above
             let scrollTimeout;
             const checkScrollEnd = () => {
@@ -363,40 +379,40 @@ document.querySelectorAll('.chevron').forEach(function(chevron) {
                     resolve();
                 }, 100);
             };
-            
-            window.addEventListener('scroll', checkScrollEnd);
+
+           // window.addEventListener('scroll', checkScrollEnd);
         });
-    
+
         scrollPromise.then(() => {
-            document.body.style.overflow = 'hidden';
-            document.querySelector('.boxclass3').style.overflowY = 'auto';
-            
+           document.body.style.overflow = 'hidden';
+          document.querySelector('.boxclass3').style.overflowY = 'auto';
+
         });
     }
     if (!document.querySelector('.reverse-chevron')) {
         const reverseChevron = document.createElement('div');
         reverseChevron.className = 'reverse-chevron';
-        
+
         // Create the same structure as original chevron (no innerHTML needed)
         const chevron1 = document.createElement('div');
         const chevron2 = document.createElement('div');
         chevron1.className = 'reverse-chevron-child first';
         chevron2.className = 'reverse-chevron-child second';
-        
+
         reverseChevron.appendChild(chevron1);
         reverseChevron.appendChild(chevron2);
-        
+
         // Position styling (CSS class handles the rest)
         reverseChevron.style.position = 'absolute';
         reverseChevron.style.bottom = '20px';
         reverseChevron.style.right = '50%';
         reverseChevron.style.cursor = 'pointer';
         reverseChevron.style.zIndex = '1000';
-        
+
         reverseChevron.addEventListener('click', function() {
             $(".chevron").show();
             document.body.style.overflow = 'auto';
-            $("#boxcontainer").fadeIn(500); 
+            $("#boxcontainer").fadeIn(500);
        $("#sectionToNavigate").fadeOut(50);
        $("#sectionToNavigate").hide();
             window.scrollTo({
@@ -407,38 +423,38 @@ document.querySelectorAll('.chevron').forEach(function(chevron) {
             $("#boxcontainer").fadeIn(500);
             reverseChevron.remove();
         });
-        
+
         document.body.appendChild(reverseChevron);
     }
-    
+
     });
     applyStaggeredAnimationProjects();
   });
 
   let hasClickedChevron = false;
-  
+
   document.querySelector('.scrollable-content').addEventListener('scroll', function() {
-     jquery(".post-title").removeClass("realname");  
-       }); 
-    
+     jquery(".post-title").removeClass("realname");
+       });
+
 
 let lastScrollY = window.scrollY; // Track the previous scroll position
 
 window.addEventListener('scroll', function() {
    const container = document.querySelector('.container');
    const currentScrollY = window.scrollY;
-   
+
 
  if (currentScrollY > 10) {
        // Check if the scroll position is greater than 10px
-   
+
           // document.querySelector(".chevron").click();
-           $("#sectionToNavigate").fadeIn(500); 
-           $("#boxcontainer").fadeOut(50);
-           $("#boxcontainer").hide(); 
-           hasClickedChevron = true; // Set the flag to true after clicking
-           
-     
+        //   $("#sectionToNavigate").fadeIn(500);
+         //  $("#boxcontainer").fadeOut(50);
+        //   $("#boxcontainer").hide();
+        //   hasClickedChevron = true; // Set the flag to true after clicking
+
+
    }
 
 
@@ -491,5 +507,99 @@ function applyStaggeredAnimationProjects() {
         });
     });
 }
+
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Show or hide elements based on device type
+window.addEventListener('DOMContentLoaded', (event) => {
+    const elements = document.querySelectorAll('.boxclass1');
+    if (isMobileDevice()) {
+        elements.forEach(el => el.style.display = 'none'); // Hide on mobile
+    } else {
+        elements.forEach(el => el.style.display = 'block'); // Show on desktop
+    }
+});
+
+(function () {
+    const THRESHOLD = 1.8; // 150%
+    let scrollDisabled = false;
+
+    function preventScroll(e) {
+        // Determine scroll direction
+        let delta = 0;
+
+        if (e.type === 'wheel') {
+            delta = e.deltaY;
+        } else if (e.type === 'touchmove') {
+            delta = lastTouchY - e.touches[0].clientY;
+            lastTouchY = e.touches[0].clientY;
+        } else if (e.type === 'keydown') {
+            const downKeys = ['ArrowDown', 'PageDown', ' '];
+            const upKeys = ['ArrowUp', 'PageUp', 'Home'];
+            if (downKeys.includes(e.key)) return; // allow scroll down
+            if (upKeys.includes(e.key)) {
+                e.preventDefault();
+                return false;
+            }
+        }
+
+        // If trying to scroll up, prevent it
+        if (delta < 0) {
+            e.preventDefault();
+            return false;
+        }
+    }
+
+    let lastTouchY = 0;
+
+    function disableScroll() {
+        if (scrollDisabled) return;
+
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+
+        window.addEventListener('wheel', preventScroll, { passive: false });
+        window.addEventListener('touchstart', (e) => lastTouchY = e.touches[0].clientY, { passive: false });
+        window.addEventListener('touchmove', preventScroll, { passive: false });
+        window.addEventListener('keydown', preventScroll, { passive: false });
+
+        scrollDisabled = true;
+        console.log('Zoom > 150%, upward scrolling disabled.');
+    }
+
+    function enableScroll() {
+        if (!scrollDisabled) return;
+
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+
+        window.removeEventListener('wheel', preventScroll, { passive: false });
+        window.removeEventListener('touchmove', preventScroll, { passive: false });
+        window.removeEventListener('keydown', preventScroll, { passive: false });
+
+        scrollDisabled = false;
+        console.log('Zoom <= 150%, scrolling enabled.');
+    }
+
+    function checkZoom() {
+        const zoomLevel = window.devicePixelRatio;
+
+        if (zoomLevel > THRESHOLD && !scrollDisabled) {
+            disableScroll();
+        } else if (zoomLevel <= THRESHOLD && scrollDisabled) {
+            enableScroll();
+        }
+    }
+
+    setInterval(checkZoom, 200);
+    window.addEventListener('resize', checkZoom);
+})();
+
+
+
+
+
 
 

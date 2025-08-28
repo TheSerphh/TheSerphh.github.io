@@ -1,474 +1,158 @@
 <html>
+
 <head>
   <title>Sourav Gope</title>
   <link rel="stylesheet" href="animate.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link rel='stylesheet' href='souravstyle.css'>
-<link rel='stylesheet' href='inline.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel='stylesheet' href='souravstyle.css'>
 
-	<link rel="" href="close.css">
-	<link rel="icon" href="S.png">
-	<meta charset="UTF-8">
+  <link rel="" href="close.css">
+  <link rel="icon" href="S.png">
+  <meta charset="UTF-8">
 
-	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<meta property="og:title" content="Sourav Gope">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta property="og:title" content="Sourav Gope">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://TheGlitchh.github.io">
   <meta name="referrer" content="origin">
   <meta name="robots" content="index, follow">
-	<meta name="audience" content="All" />
-	<meta name="distribution" content="INDIA">
+  <meta name="audience" content="All" />
+  <meta name="distribution" content="INDIA">
   <meta name="robots" content="max-image-preview:large">
-	<meta property="og:description" content="Sourav Gope's Introductory website">
+  <meta property="og:description" content="Sourav Gope's Introductory website">
 </head>
 
 
-	<style>  
-    /* Style for the blog post */
-    .blog-post {
-  font-family: Arial, sans-serif;
-  margin-bottom: 15px;
-  padding: 10px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.post-title {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.post-meta {
-  text-align: center;
-  font-style: italic;
-  color: #666;
-  margin-bottom: 10px;
-}
-.post-tags{
-  text-align: center;
-}
-.post-content {
-  text-align: center;
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-    /* Zoom effect on hover 
-    .blog-post:hover {
-      transform: scale(1.05);  Adjust the scaling factor as needed
-    }*/
-
-
-
-	/* start of border*/
-
-
-  .txtarea{
-    font-family: Arial, sans-serif;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 5px solid #ebdbb2;
-  border-radius: 18px;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  font-size: 24px;
-  border-style: dotted;
-  padding: 2rem 1rem;
-  min-height: 3em;
-  resize: both;
-  border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23504945' /%3E%3Cstop offset='100%25' stop-color='%23504945' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
-}
-
-
-.container {
-  margin-left:49%;
-  margin-top:4%;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  opacity: 1; 
-}
-/* Original Chevron Styles */
-.chevron{
-  position: absolute;
-  width: 28px;
-  height: 8px;
-  opacity: 0;
-  transform: scale3d(0.5, 0.5, 0.5);
-}
-.reverse-chevron-child {
-  position: absolute;
-  width: 28px;
-  height: 8px;
-  opacity: 0;
-  transform: scale3d(-0.5, -0.5, -0.5);
-}
-
-.chevron:first-child, .first {
-  animation: move 3s ease-out 1s infinite;
-}
-
-.chevron:nth-child(2), .second {
-  animation: move 3s ease-out 2s infinite;
-}
-
-.chevron:before, 
-.chevron:after,
-.reverse-chevron-child:before,
-.reverse-chevron-child:after {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 51%;
-  background: #ebdbb2;
-}
-
-.chevron:before,
-.reverse-chevron-child:before {
-  left: 0;
-  transform: skew(0deg, 30deg);
-}
-
-.chevron:after,
-.reverse-chevron-child:after {
-  right: 0;
-  width: 50%;
-  transform: skew(0deg, -30deg);
-}
-
-/* Reverse Chevron Container */
-.reverse-chevron {
-  position: absolute;
-  top: 20%;
-  right: 50%;
-  width: 28px;
-  height: 60px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* Animation Differences */
-@keyframes move {
-  25% { opacity: 1; }
-  33% { opacity: 1; transform: translateY(30px); }
-  67% { opacity: 1; transform: translateY(40px); }
-  100% { opacity: 0; transform: translateY(55px) scale3d(0.5, 0.5, 0.5); }
-}
-
-.reverse-chevron-child {
-  animation-name: move-reverse;
-}
-
-@keyframes move-reverse {
-  25% { opacity: 1; }
-  33% { opacity: 1; transform: translateY(-30px) scale3d(-1, -1, -1); }
-  67% { opacity: 1; transform: translateY(-40px) scale3d(-1, -1, -1); }
-  100% { opacity: 0; transform: translateY(-55px) scale3d(-0.5, -0.5, -0.5); }
-}
-
-.text {
-  display: block;
-  margin-top: 75px;
-  margin-left: -30px;
-  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  font-size: 12px;
-  color: #fff;
-  text-transform: uppercase;
-  white-space: nowrap;
-  opacity: .25;
-  animation: pulse 2s linear alternate infinite;
-}
-
-@keyframes pulse {
-  to {
-    opacity: 1;
-  }
-}
-  </style>
-
 <style>
- .download-cv-btn {
-  line-height: 50px;
-  height: 50px;
-  width: 50px; /* Adjust width to match the height */
-  cursor: pointer;
-  color: #fff89d; /* Text color */
-  transition: all 0.5s;
-  position: relative;
-  background-color: #312c1f93; /* Translucent background color */
-  border: none; /* Remove borders */
-  border-radius: 50%; /* Make it a circle */
-  text-align: center; /* Center text */
-  font-size: 14px; /* Adjust font size to fit */
-  display: flex;
-  align-items: center; /* Center text vertically */
-  justify-content: center; /* Center text horizontally */
-}
 
-.download-cv-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.1); /* Match background color */
-  transition: all 0.3s;
-  border-radius: 50%; /* Make the before element a circle */
-}
-
-.download-cv-btn:hover::before {
-  opacity: 0;
-  transform: scale(0.5, 0.5);
-}
-
-.download-cv-btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.3s;
-  border: 1px solid rgba(255, 215, 129, 0.842); /* Match border color */
-  transform: scale(1.2, 1.2);
-  border-radius: 50%; /* Make the after element a circle */
-}
-
-.download-cv-btn:hover::after {
-  opacity: 1;
-  transform: scale(1, 1);
-}
 
 </style>
+<canvas id="bgCanvas"></canvas>
 
-<style>
- .post-title span {
-	color: #c98a57; /* Color for the text */
-	opacity: 0; /* Initial opacity */
-	transform: translate(-150px, -50px) rotate(-180deg) scale(3); /* Initial transform */
-	animation: revolveScale 0.4s forwards; /* Apply the revolveScale animation */
-}
-
-/* Keyframes for Animation One */
-@keyframes revolveScale {
-	60% {
-		transform: translate(20px, 20px) rotate(30deg) scale(.3);
-	}
-
-	100% {
-		transform: translate(0) rotate(0) scale(1);
-		opacity: 1;
-	}
-}
-@keyframes revolveScaleP {
-  60% {
-      transform: translate(20px, 20px) rotate(30deg) scale(0.3);
-      filter: blur(10px);
-  }
-
-  100% {
-      transform: translate(0) rotate(0) scale(1);
-      opacity: 1;
-      filter: blur(0);
-  }
-}
-</style>
-
-<style>
-  @keyframes closeAnimation {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-}
-
-.boxclassinfinite.hide-animation {
-    animation: closeAnimation 0.3s forwards;
-}
-</style>
-
-<style>
-#boxcontainer {
-    display: flex;
-    
-    
-
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 20px;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    
-   
-}
-
-</style>
-
-
-<style>
-  .button-2 {
-    background-color: #282828;
-    border-radius: 15px;
-    border-width: 0;
-    color: #fff9a7;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
-    margin-bottom: 6px;
-    padding: 5px 10px;
-    text-align: center;
-    transition: all 200ms;
-    vertical-align: baseline;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    animation: mix 5s cubic-bezier(0.23, 1, 0.320, 1) infinite;
-    &::after {
-      background: transparent !important;
-    }
-  }
-  
-  .button-2:hover {
-    background-color: rgba(0,0,0,0);
-    color: #ffffc4;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation-play-state: paused;
-  }
-  
-  @keyframes mix {
-    30% {
-    box-shadow: 0 -0.5em 1em 1.5em rgba(255, 0, 200, 0.5),
-    2em -0.5em 1em 1.5em rgba(255, 50, 0, 0.8),
-    -2em 1em 1.5em 1em rgba(155, 200, 0, 0.5),
-    -2em -1em 1em 1em rgba(200, 0, 150, 0.6),
-    0 1.5em 1em 1em rgba(20, 250, 0, 0.5),
-    1em 0.5em 1em 1em rgba(50, 10, 250, 0.5);
-    filter: grayscale(0.3) contrast(1.2) brightness(0.9) saturate(0.8) sepia(0.1) hue-rotate(10deg);
-    }
-    60% {
-    box-shadow: 1em 0.5em 1em 1.5em rgba(55, 0, 200, 0.5),
-    1.5em 0.5em 1em 1.5em rgba(25, 150, 0, 0.6),
-    1.5em -1em 1.5em 1.5em rgba(155, 200, 0, 0.5),
-    -2em 1em 1em 1.5em rgba(200, 0, 50, 0.6),
-    0 -1.5em 1em 1.5em rgba(200, 250, 0, 0.5),
-    -1em 0.5em 1em 1.5em rgba(50, 210, 250, 0.6);
-    filter: grayscale(0.3) contrast(1.2) brightness(0.9) saturate(0.8) sepia(0.1) hue-rotate(10deg);
-    }
-    }
-
-  
-  
- 
-</style>
-<canvas  id="bgCanvas"></canvas>
 <body>
-<div id="boxcontainer">
-  
-<div class="boxclass">
-<table width="100%" border="0">
-<tr> <td style="padding-left:-20px;" rowspan="4"><a href="https://github.com/TheGlitchh"><img style="" class="imgclass1" src="./res/PXL_20230729_140247553.jpg" alt="souravImg"> </a>  </td>
-<td><p class="p1 gradient" style="font-weight: bold; font-size: 20px;">Sourav Gope</p></td>
-<td rowspan="4" valign="top" class="download-cv-container">
-  <button id="downloadCV" class="download-cv-btn"><i class="fas fa-id-card"></i></button>
-</td>
-</tr>
-<tr><td><p><i class="fa-solid fa-calendar-days"></i> Age: <span id="ageset">23</span></p></td></tr>
-	<tr><td><p>Education: Btech@CSE</p></td></tr>
-	<tr><td><p>Email: TheGlitchh@duck.com</p></td></tr>
-</table>
-</p>
-	<table>
-<tbody>
-<tr> <td><p>Hello there my name is Sourav Gope, I have completed my Btech In Computer Science & Engineering and I am currently
-working as a Programmer Analyst at <a target="_blank" href="https://SRINSIGHTS.com"> Strategic Research Insights. </a> </p></td></tr>
-</tbody>
-	</table>
-	<br>
-	<table> <tr> <td><ul style="margin-left:90px; margin-top:-15px;">
-		<li>
-			<a target="_blank" href="https://t.me/TheGlitchh1">
-				<i class="fas fa-paper-plane icon1"></i>   </a>
-		</li>
-		<li>
-			<a target="_blank" href="https://github.com/TheGlitchh"><i class="fab fa-github icon1"></i></a>
-		</li>
-		<li>
-			<a target="_blank" href="https://leetcode.com/TheGlitchh"><i class="fas fa-code-branch icon1"></i></a></li>
-		<li>
-			<a href="mailto:TheGlitchh@duck.com"><i class="fas fa-envelope icon1"></i></a></li>
-	</ul></td></tr></table>
+  <div id="boxcontainer">
 
-</div>
+    <div class="boxclass">
+      <table width="100%" border="0">
+        <tr>
+          <td style="padding-left:-20px;" rowspan="4"><a href="https://github.com/TheGlitchh"><img style=""
+                class="imgclass1" src="./res/PXL_20230729_140247553.jpg" alt="souravImg"> </a> </td>
+          <td>
+            <p class="p1 gradient" style="font-weight: bold; font-size: 20px;">Sourav Gope</p>
+          </td>
+          <td rowspan="4" valign="top" class="download-cv-container">
+            <button id="downloadCV" class="download-cv-btn"><i class="fas fa-id-card"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><i class="fa-solid fa-calendar-days"></i> Age: <span id="ageset">23</span></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Education: Btech@CSE</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Email: TheGlitchh@duck.com</p>
+          </td>
+        </tr>
+      </table>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <p id="punhide">Hello there my name is Sourav Gope, I have completed my Btech In Computer Science & Engineering and I
+                am currently
+                working as a Programmer Analyst at <a target="_blank" href="https://SRINSIGHTS.com"> Strategic Research
+                  Insights. </a> </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table id="sociatable">
+        <tr>
+          <td>
+            <ul  id="ul2id" style="margin-top:-15px;">
+              <li>
+                <a target="_blank" href="https://t.me/TheGlitchh1">
+                  <i class="fas fa-paper-plane icon1"></i> </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://github.com/TheGlitchh"><i class="fab fa-github icon1"></i></a>
+              </li>
+              <li>
+                <a target="_blank" href="https://leetcode.com/TheGlitchh"><i class="fas fa-code-branch icon1"></i></a>
+              </li>
+              <li>
+                <a href="mailto:TheGlitchh@duck.com"><i class="fas fa-envelope icon1"></i></a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
 
-<!--Second Card--> 
-<table width="100%" border="0" style="margin-left: 10px;">
-  <tr>
-    <td>
-      <div width="100%" class="boxclass1">
-        <div id="blog-container" class="scrollable-content">
-          <!-- Blog posts will be dynamically inserted here -->
-        </div>
-      </div>
-    </td>
-  </tr>
-</table>
-</div>
+    </div>
 
-<!--- Third card-->
-<table width="100%">
-  <tr> <td>  
-    <div class="container">
-      <div class="chevron" data-scroll-to=".boxclass3"></div>
-      <div class="chevron" data-scroll-to=".boxclass3"></div>
-      <div class="chevron" data-scroll-to=".boxclass3"></div>
-    </div>  
-  
-  </td></tr>
-
-</table>
-
-<div class="container">
- 
-<section id="sectionToNavigate" style="height: 1000px; background-color:#ff000000">
-  <!-- Content of the section -->
-
-       <div class="boxclass3">
-
-
-       </div>
-      
-
-</section>
-
-</div>
- 
-<div class="boxclassinfinite"  hidden>
- 
-  <div class="close-container close-btn">
-    <div  class="leftright"></div>
-    <div  class="rightleft"></div>
-    <label class="close">close</label>
+    <!--Second Card-->
+    <table width="100%" border="0" style="margin-left: 10px;">
+      <tr>
+        <td>
+          <div width="100%" class="boxclass1">
+            <div id="blog-container" class="scrollable-content">
+              <!-- Blog posts will be dynamically inserted here -->
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
- 
-</div>
+
+  <!--- Third card-->
+  <table width="100%">
+    <tr>
+      <td>
+        <div class="container">
+          <div class="chevron" data-scroll-to=".boxclass3"></div>
+          <div class="chevron" data-scroll-to=".boxclass3"></div>
+          <div class="chevron" data-scroll-to=".boxclass3"></div>
+        </div>
+
+      </td>
+    </tr>
+
+  </table>
+
+  <div class="container">
+
+    <section id="sectionToNavigate" style="height: 1000px; background-color:#ff000000">
+      <!-- Content of the section -->
+
+      <div class="boxclass3">
+
+
+      </div>
+
+
+    </section>
+
+  </div>
+
+  <div class="boxclassinfinite" hidden>
+
+    <div class="close-container close-btn">
+      <div class="leftright"></div>
+      <div class="rightleft"></div>
+      <label class="close">close</label>
+    </div>
+
+  </div>
 
 </body>
 
