@@ -112,12 +112,15 @@
             cursor: pointer;
             box-shadow: 0 2px 8px #0003;
             transition: background 0.3s;
-            display: none;
         }
 
         button:hover {
             background: linear-gradient(90deg, #47e676 40%, #5ad1ff 100%);
             color: #23263a;
+        }
+
+        #resetBtn {
+            display: none;
         }
 
         #login-container {
@@ -158,7 +161,7 @@
 
     <div id="status">Loading...</div>
     <div class="board" id="board"></div>
-    <button onclick="resetGame()">Reset Game</button>
+    <button id="resetBtn" onclick="resetGame()">Reset Game</button>
 
     <script>
         // Hardcoded users with passwords
@@ -194,7 +197,7 @@
             statusDiv.textContent = `✅ Logged in as ${user.username}`;
             document.getElementById("login-container").style.display = "none";
             document.getElementById("board").style.display = "grid";
-            document.querySelector("button").style.display = "block";
+            document.getElementById("resetBtn").style.display = "block";
         }
 
         // Restore session if available
@@ -205,7 +208,7 @@
                 if (loggedInUser) {
                     document.getElementById("login-container").style.display = "none";
                     document.getElementById("board").style.display = "grid";
-                    document.querySelector("button").style.display = "block";
+                    document.getElementById("resetBtn").style.display = "block";
                 }
             }
         };
