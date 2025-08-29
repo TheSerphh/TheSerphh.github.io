@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe Multiplayer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #1d202b;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 16px #0004;
+        }
+
+        #status {
+            margin: 24px 0 12px 0;
+            font-size: 1.2em;
+            min-height: 30px;
+            font-weight: 500;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 90px);
+            grid-gap: 10px;
+            margin-bottom: 24px;
+            perspective: 600px;
+        }
+
+        .cell {
+            width: 90px;
+            height: 90px;
+            font-size: 2.7em;
+            background: #23263a;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 90px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 4px 20px #0002;
+            border: 2px solid #2d324b;
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cell:hover:not(.filled):not(.winner) {
+            background: #353b5c;
+            transform: scale(1.05) rotateZ(-2deg);
+        }
+
+        .cell.filled {
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .cell.winner {
+            background: #47e676;
+            color: #23263a;
+            animation: winner-cell 1s ease-in-out;
+            border-color: #47e676 !important;
+            box-shadow: 0 0 32px #47e67666;
+        }
+
+        @keyframes winner-cell {
+            0% {
+                box-shadow: 0 0 0px #47e67666;
+            }
+
+            30% {
+                box-shadow: 0 0 32px #47e67666;
+            }
+
+            100% {
+                box-shadow: 0 0 32px #47e67666;
+            }
+        }
+
+        .player-x {
+            color: #5ad1ff;
+            text-shadow: 0 0 8px #5ad1ff77;
+        }
+
+        .player-o {
+            color: #ff7c6a;
+            text-shadow: 0 0 8px #ff7c6a77;
+        }
+
+        button {
+            background: linear-gradient(90deg, #5ad1ff 40%, #47e676 100%);
+            color: #1d202b;
+            font-weight: 700;
+            border: none;
+            border-radius: 16px;
+            padding: 12px 32px;
+            font-size: 1em;
+            margin-top: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #0003;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #47e676 40%, #5ad1ff 100%);
+            color: #23263a;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tic Tac Toe Multiplayer</h1>
+    <div id="status">Loading...</div>
+    <div class="board" id="board"></div>
+    <button onclick="resetGame()">Reset Game</button>
+
+    <script>
+        // Hardcoded users
+        const USERS = [
+            { username: "player1", symbol: "X", style: "player-x" },
+            { username: "player2", symbol: "O", style: "player-o" }
+        ];
+
+        const owner = "TheGlitchh";
+        const repo = "TheGlitchh.github.io";
+        const branch = "temp";
+        const filePath = "tictactoe.json";
+
+        const OAUTH_KEY = "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"; //temp auth key which can access only this repo and nothing else so its all good for demo purposes
+
+        let gameState = null;
+        let winnerCells = [];
+
+        async function fetchGameState() {
+            const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}?${Date.now()}`;
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Could not fetch game state.");
+                gameState = await res.json();
+                renderBoard();
+                updateStatus();
+            } catch (err) {
+                document.getElementById('status').textContent = "Error loading game: " + err.message;
+            }
+        }
+
+        async function pushGameState() {
+            // Get latest file SHA
+            const getShaUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
+            let sha = "";
+            try {
+                const shaRes = await fetch(getShaUrl, {
+                    headers: { "Authorization": `token ${OAUTH_KEY}` }
+                });
+                if (!shaRes.ok) throw new Error("Failed to get SHA.");
+                const shaData = await shaRes.json();
+                sha = shaData.sha;
+            } catch (err) {
+                alert("Failed to get file SHA: " + err.message);
+                return;
+            }
+            // Prepare update payload
+            const updateUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+            const payload = {
+                message: "Update Tic Tac Toe game state",
+                content: btoa(unescape(encodeURIComponent(JSON.stringify(gameState)))),
+                branch,
+                sha
+            };
+            try {
+                const res = await fetch(updateUrl, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${OAUTH_KEY}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error("Failed to push game state.");
+                // After successful push, fetch latest state so all users are live
+                await fetchGameState();
+            } catch (err) {
+                alert("Failed to push game state: " + err.message);
+            }
+        }
+
+        function renderBoard() {
+            winnerCells = getWinnerCells();
+            const boardDiv = document.getElementById('board');
+            boardDiv.innerHTML = '';
+            gameState.moves.forEach((cell, idx) => {
+                const cellDiv = document.createElement('div');
+                cellDiv.className = 'cell';
+                if (cell) cellDiv.classList.add('filled');
+                if (winnerCells.includes(idx)) cellDiv.classList.add('winner');
+                if (cell === "X") cellDiv.classList.add('player-x');
+                if (cell === "O") cellDiv.classList.add('player-o');
+                cellDiv.textContent = cell;
+                cellDiv.onclick = () => handleMove(idx);
+                boardDiv.appendChild(cellDiv);
+            });
+        }
+
+        function updateStatus() {
+            const statusDiv = document.getElementById('status');
+            if (winnerCells.length) {
+                statusDiv.textContent = `Winner: ${USERS[gameState.current_player].symbol}!`;
+            } else if (gameState.moves.every(cell => cell)) {
+                statusDiv.textContent = "It's a draw!";
+            } else {
+                statusDiv.textContent = `Current Player: ${USERS[gameState.current_player].username} (${USERS[gameState.current_player].symbol})`;
+            }
+        }
+
+        function handleMove(idx) {
+            // Always fetch latest state before handling move
+            fetchGameState().then(() => {
+                if (gameState.moves[idx] || winnerCells.length) return;
+                gameState.moves[idx] = USERS[gameState.current_player].symbol;
+                if (!getWinnerCells().length) {
+                    gameState.current_player = 1 - gameState.current_player;
+                }
+                pushGameState(); // Save immediately
+                renderBoard();
+                updateStatus();
+            });
+        }
+
+        function getWinnerCells() {
+            const lines = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+            for (const line of lines) {
+                const [a, b, c] = line;
+                if (gameState.moves[a] &&
+                    gameState.moves[a] === gameState.moves[b] &&
+                    gameState.moves[a] === gameState.moves[c]) {
+                    return line;
+                }
+            }
+            return [];
+        }
+
+        function resetGame() {
+            gameState = {
+                users: USERS,
+                moves: ["", "", "", "", "", "", "", "", ""],
+                current_player: 0
+            };
+            pushGameState();
+            renderBoard();
+            updateStatus();
+        }
+
+        // Live updates every 2 seconds
+        setInterval(fetchGameState, 2000);
+
+        // Initial load
+        fetchGameState();
+    </script>
+</body>
+
+</html>
