@@ -300,6 +300,7 @@ animate();
 
 // Stop after 5 seconds
 setTimeout(() => {
+    if(!check_mobile)
     cancelAnimationFrame(animationId);
 }, 7000);
 
@@ -517,12 +518,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const elements = document.querySelectorAll('.boxclass1');
     if (isMobileDevice()) {
         elements.forEach(el => el.style.display = 'none'); // Hide on mobile
+
+            animate();
+
+
     } else {
         elements.forEach(el => el.style.display = 'block'); // Show on desktop
+        setTimeout(() => {
+            cancelAnimationFrame(animationId);
+        }, 7000);
     }
 });
-
-(function () {
+var check_mobile = false;
+if(isMobileDevice()){
+    check_mobile = true;
+}else{
+    check_mobile = false;
+}
+/*(function () {
     const THRESHOLD = 1.8; // 150%
     let scrollDisabled = false;
 
@@ -595,7 +608,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     setInterval(checkZoom, 200);
     window.addEventListener('resize', checkZoom);
-})();
+})();*/
 
 
 
