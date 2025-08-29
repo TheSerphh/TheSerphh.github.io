@@ -175,11 +175,11 @@
         const branch = "temp";
         const filePath = "tictactoe.json";
 
-        const OAUTH_KEY = "github_pat_xxx"; // replace with actual
+        const OAUTH_KEY = "github_pat_xxx"; // replace with your demo key
 
         let gameState = null;
         let winnerCells = [];
-        let loggedInUser = null; // Store active user
+        let loggedInUser = null;
 
         function login() {
             const uname = document.getElementById("username").value.trim();
@@ -200,7 +200,6 @@
             document.getElementById("resetBtn").style.display = "block";
         }
 
-        // Restore session if available
         window.onload = () => {
             const savedUser = localStorage.getItem("tictactoe_user");
             if (savedUser) {
@@ -227,26 +226,13 @@
         }
 
         async function pushGameState() {
-            const getShaUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
-            let sha = "";
-            try {
-                const shaRes = await fetch(getShaUrl, {
-                    headers: { "Authorization": `token ${OAUTH_KEY}` }
-                });
-                if (!shaRes.ok) throw new Error("Failed to get SHA.");
-                const shaData = await shaRes.json();
-                sha = shaData.sha;
-            } catch (err) {
-                alert("Failed to get file SHA: " + err.message);
-                return;
-            }
             const updateUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
             const payload = {
                 message: "Update Tic Tac Toe game state",
-                content: btoa(unescape(encodeURIComponent(JSON.stringify(gameState)))),
-                branch,
-                sha
+                content: btoa(JSON.stringify(gameState, null, 2)), // simpler base64 encoding
+                branch
             };
+
             try {
                 const res = await fetch(updateUrl, {
                     method: "PUT",
@@ -256,7 +242,12 @@
                     },
                     body: JSON.stringify(payload)
                 });
-                if (!res.ok) throw new Error("Failed to push game state.");
+
+                if (!res.ok) {
+                    const errData = await res.json();
+                    throw new Error(errData.message || "Failed to push game state.");
+                }
+
                 await fetchGameState();
             } catch (err) {
                 alert("Failed to push game state: " + err.message);
