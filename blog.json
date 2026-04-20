@@ -1,11 +1,11 @@
 [
     {
-      "title": "Awake once Again",
-      "date": "10 July, 2025",
+      "title": "A curvature in Space Time",
+      "date": "20 April, 2026",
       "author": "Sourav Gope",
       "content": "The day I got back my purpose.",
       "tags": ["CS", "past life", "retrospective"],
-      "full": "With the current event that has traspired in my life, I have got to know that no matter how much true you are no matter how much good you are the things you want in life will never happen as you want it to be, so before things get more bad I must make a definitive move towards my actual goal and keep moving with it and at thing point I am hoping that my life will catch up with this and the intense sharp pain that i am feeling emotionally will be soothened by it. Its time to focus once again, time to give everything that i got, I don't hope any longer I just want to work for it, this blog will mark a definitve absence of mine from the rest of the world till i find my way through Computer Science as thats what I only have left."
+      "full": "Continuing to the previous blog post, I have been pursuing my programmer job for 2.8 years now and during my tenure, I understood that i have certain shortcomings, like ADHD, though i didn't get diagonised by a physician but all my symptops point towards this, now being in a service job with adhd is very tough. If i use the word tough it might be incorrect so let me rephrase it, 'being in a service based job is not meant for a person with adhd', the calling for me was research, I have always been interested in my degree in CS, and after spending such a long time in corporate, I feel thats where my place is, not fast paced, deep thinking and room for errors and growth. So with a heavy heart I have resigned from my job on 2nd of march 2026 and currently serving a notice period of 3 months, as I have decided to pursue Masters in CS and will now be focusing on through GATE exam, unless something changes :) "
     },
     {
       "title": "A summary of Sourav",
@@ -14,13 +14,5 @@
       "content": "A Summary on What I have been doing in Life.",
       "tags": ["purpose of life", "stoicism", "awakening"],
       "full": "Created this dynamic blog post (using json) for easier access just to keep things organised, now to start with the blog post, I was a major science enthusiast since my 8th class, I have been learning about classical physics and quantum mechanics since my 10th standard afterwards I had to shift from my small city to the heart or capital of tripura state(India) for my higher studies, I have choosen science as my stream for my higher studies, during 11th , I have caught up with a very rare disease called GB Syndrome and could barely give the 12th exam, I have passed 12th standard with very average marks and during my illness I was fond of the Android firmware community and was really into flashing android custom Roms, thats where my interest in tech and programming began, I have then dropped my plan of pursuing anything in space science like particle physics or quantum mechanics and was totally into developing/programming, then I have decided to join a 3rd tier college for my btech as that was the only option for me as I couldn't clear JEE and could not get NIT or IIT. During the first 2 years I was into lower level coding and was officially maintaining Android projects mainly Custom Android sources like DotOS, SuperiorOS, Liquid Remix, ViperOS, then as my interest shifted I got introduced to web development from various subreddits i used to follow and i was doing a bit of that too, I was lucky that i got a job offer during my college campus for a web dev job at Hyderabad. Hence I shifted there and started pursuing that job and i am still pursuing this job."
-    },
-    {
-      "title": "A Purpose Driven Life",
-      "date": "24 Sep, 2024",
-      "author": "Sourav Gope",
-      "content": "Gonna talk about what I wanna do in Life",
-      "tags": ["A vision", "reawakening", "purpose"],
-      "full": "Now that i am in web dev, I feel I should be gravitating towards lower level coding like i used to but this time it won't be saggregated and I would be making it count and will be working in a 'brick by brick' method where now i am starting to refocus my attention on c++ and c along with all the GATE Topics of CS to solidify my confidence in CS and all of its subject, as pure CS is mostly lower level, I feel I can do something nice in this field including research and i think thats where my core interest lies on, even though web is nice and all but I feel right at home doing lower level coding as it ties me close to computer science. I dont know what will be happening in future but i will be setteling with lower level and that is a decision i have made with a week of self realisation."
     }
   ]
