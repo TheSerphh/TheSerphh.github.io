@@ -1,0 +1,189 @@
+{
+    "paper": {
+        "runningHead": {
+            "left": "Curriculum Vitae",
+            "center": "Computer Science & Engineering",
+            "right": "Academics"
+        },
+        "title": "Portfolio",
+        "author": {
+            "name": "Sourav Gope",
+            "handle": "@TheSerphh",
+            "birthDate": "2000-12-15",
+            "affiliations": [
+                "BTech in CSE • Techno College Of Engineering Agartala (2019-2023)",
+                "MTech in CSE • Tripura University (2026-2028 Tentative)"
+            ],
+            "contacts": [
+                {
+                    "label": "TheSerphh@duck.com",
+                    "url": "mailto:TheSerphh@duck.com",
+                    "icon": "fa-solid fa-envelope text-danger"
+                },
+                {
+                    "label": "github.com/TheSerphh",
+                    "url": "https://github.com/TheSerphh",
+                    "icon": "fa-brands fa-github"
+                },
+                {
+                    "label": "linkedin.com/in/theserphh",
+                    "url": "https://linkedin.com/in/theserphh",
+                    "icon": "fa-brands fa-linkedin text-primary"
+                },
+                {
+                    "label": "t.me/TheSerphh",
+                    "url": "https://t.me/TheSerphh",
+                    "icon": "fa-brands fa-telegram text-info"
+                },
+                {
+                    "label": "leetcode.com/TheSerphh",
+                    "url": "https://leetcode.com/TheSerphh",
+                    "icon": "fa-solid fa-code text-warning"
+                }
+            ]
+        },
+        "abstract": "I'm Sourav Gope (TheSerphh), a 25-year-old computer science engineer from India with a B.Tech in CSE. I've worked in Android systems as an official maintainer for DotOS and SuperiorOS, and in pharmaceutical market research as a survey programmer. I'm now moving into academic research and starting an M.Tech in Computer Science at Tripura University from August 2026.",
+        "indexTerms": []
+    },
+    "sections": [
+        {
+            "id": "education",
+            "column": "left",
+            "title": "Education & Relevant Coursework",
+            "type": "education",
+            "entries": [
+                {
+                    "institution": "Techno College Of Engineering Agartala",
+                    "period": "July 2023",
+                    "location": "Agartala, Tripura",
+                    "degree": "Bachelor of Technology in Computer Science & Engineering",
+                    "performance": "SGPA: 8.55 / 10",
+                    "description": "Completed core engineering foundations covering systems architecture, algorithmic complexity, database principles, and low-level hardware-software interfacing.",
+                    "coursework": [
+                        "Data Structures and Algorithms (C++)",
+                        "Digital Logic & Microprocessor",
+                        "Discrete Mathematics",
+                        "Computer Organization & Architecture",
+                        "Computer Networks & Protocols",
+                        "Database Management Systems (DBMS)",
+                        "Compiler Design"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "experience",
+            "column": "left",
+            "title": "Professional Industry Experience",
+            "type": "experience",
+            "entries": [
+                {
+                    "company": "Strategic Research Insights LLP",
+                    "period": "August 2023 – May 2026",
+                    "location": "Hyderabad, Telangana",
+                    "role": "Analyst (Programming & Quality Control) / Programmer Analyst",
+                    "summary": "Executed core pipeline development, automated data ingress, and analytical validation across multi-market enterprise survey research engagements:",
+                    "highlights": [
+                        "<strong>Survey Engineering:</strong> Programmed complex market research surveys and engineered structured data collection pipelines utilizing Sawtooth Lighthouse Studio, JavaScript, and Perl.",
+                        "<strong>Computer Vision & Cloud Automation:</strong> Engineered research and development integrations leveraging Computer Vision data to generate eye-tracking heatmaps for respondent behavioral analysis, alongside engineering automated survey-to-Dropbox transfer pipelines via JavaScript.",
+                        "<strong>Conversational NLP Architecture:</strong> Co-developed an NLP-driven AI chatbot leveraging OpenAI's ChatGPT model to dynamically generate and serve context-aware questions to survey respondents.",
+                        "<strong>Quality Assurance & Mentorship:</strong> Mentored and trained 2 junior analysts in programming standards and predictive data analysis methodologies utilizing IBM SPSS."
+                    ],
+                    "badges": [
+                        "Sawtooth Lighthouse Studio",
+                        "JavaScript",
+                        "Perl",
+                        "Computer Vision",
+                        "OpenAI API",
+                        "IBM SPSS",
+                        "Dropbox API"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "leadership",
+            "column": "left",
+            "title": "Honors & Open-Source Maintainership",
+            "type": "honors",
+            "entries": [
+                {
+                    "title": "Top 20 Rank — Hackathon 2020",
+                    "meta": "Techno India Group",
+                    "description": "Secured top 20 placement in Hackathon 2020 organized by Future-Proof Labs, focusing on algorithmic problem-solving and rapid engineering prototyping."
+                },
+                {
+                    "title": "Official Maintainer: Custom Android OS",
+                    "meta": "Open-Source Distribution",
+                    "description": "Served as official device maintainer for established community Android distributions including <strong>DotOS</strong>, <strong>SuperiorOS</strong>, and <strong>ViperOS</strong>, managing device-tree integration, kernel patching, and stability testing."
+                },
+                {
+                    "title": "Institutional Memberships & Competitions",
+                    "meta": "Extracurricular Record",
+                    "description": "Active student member of <strong>Future-Proof LABS</strong> (Technical Society of Techno India Group). Competitor in the <strong>Robotronics</strong> Inter-College Robotics Competition."
+                }
+            ]
+        },
+        {
+            "id": "projects",
+            "column": "right",
+            "title": "Technical Projects & Artifacts",
+            "type": "projects",
+            "entries": [
+                {
+                    "title": "Fresh Fruit Detection (B.Tech Project)",
+                    "tag": "Computer Vision",
+                    "tech": "Python, OpenCV, YOLOv3, JavaScript",
+                    "description": "Engineered a real-time computer vision pipeline utilizing a custom-trained YOLOv3 model and Kaggle datasets to classify fruits as fresh or rotten. Integrated a JavaScript frontend with a Python backend to perform dynamic object detection and render probabilistic freshness scores on live video streams."
+                },
+                {
+                    "title": "Nothing Land",
+                    "tag": "80+ GitHub Stars",
+                    "tech": "Java, JavaScript, Android SDK",
+                    "description": "Engineered an open-source Android utility replicating the 'iOS Dynamic Island' interaction model in native Java. Successfully released beta packages to the developer community, accumulating over 80 GitHub stars.",
+                    "url": "https://github.com/TheSerphh/NothingLand"
+                },
+                {
+                    "title": "Automated Linux Workspace Environment",
+                    "tag": "100+ GitHub Stars",
+                    "tech": "Python, Shell, Vim Script, Lua",
+                    "description": "Programmed a robust, reproducible Linux development environment utilizing Python and Shell scripting to automate system configurations, garnering over 100 stars on GitHub from the open-source community for its stability and versatile deployment.",
+                    "url": "https://github.com/TheSerphh/dotfiles"
+                },
+                {
+                    "title": "WSL USB Passthrough Utility",
+                    "tag": "Hardware Subsystem",
+                    "tech": "C#, Windows Subsystem for Linux (WSL)",
+                    "description": "Engineered a utility in C# to automate the passthrough and mounting of physical USB devices from Windows host systems into Windows Subsystem for Linux (WSL) environments.",
+                    "url": "https://github.com/TheSerphh/Wsl_Usb_Transfer"
+                }
+            ]
+        },
+        {
+            "id": "skills",
+            "column": "right",
+            "title": "Technical Skills Taxonomy",
+            "type": "table",
+            "tableIntro": "The candidate's technical profile is classified across four core engineering domains in Table I.",
+            "tableLabel": "Table I: Technical Skill Matrix & Framework Distribution",
+            "tableRows": [
+                {
+                    "domain": "Languages",
+                    "items": "Python, Java, C, C++, C#, JavaScript, Shell, Lua, Assembly, XML, HTML/CSS, Perl"
+                },
+                {
+                    "domain": "AI & Frameworks",
+                    "items": "PyTorch, OpenCV, YOLOv3, OpenAI API, Android SDK, Node.js"
+                },
+                {
+                    "domain": "Tools & Platforms",
+                    "items": "Linux, CMake, GCC, Sawtooth Lighthouse Studio, Git, Vim, IBM SPSS, Dropbox API"
+                },
+                {
+                    "domain": "Core Disciplines",
+                    "items": "Computer Vision, Machine Learning, Operating Systems, System Automation, Algorithms, Embedded Systems"
+                }
+            ]
+        }
+    ]
+}

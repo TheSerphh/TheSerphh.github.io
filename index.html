@@ -1,168 +1,487 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 
 <head>
-  <title>Sourav Gope</title>
-  <link rel="stylesheet" href="animate.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel='stylesheet' href='souravstyle.css'>
-
-  <link rel="" href="close.css">
-  <link rel="icon" href="S.png">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio of Sourav Gope</title>
 
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta property="og:title" content="Sourav Gope">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://TheSerphh.github.io">
-  <meta name="referrer" content="origin">
-  <meta name="robots" content="index, follow">
-  <meta name="audience" content="All" />
-  <meta name="distribution" content="INDIA">
-  <meta name="robots" content="max-image-preview:large">
-  <meta property="og:description" content="Sourav Gope's Introductory website">
+  <!-- Bootstrap 5 CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Academic Serif, Clean Sans & Monospace Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       AUTHENTIC GRUVBOX PALETTE (MORHETZ SPECIFICATION)
+       ========================================================================== */
+    :root[data-theme="dark"] {
+      --bg-outer: #1d2021;
+      --bg-paper: #282828;
+      --bg-surface: #32302f;
+      --bg-subtle: #3c3836;
+      --bg-hover: #504945;
+
+      --text-main: #ebdbb2;
+      --text-headings: #fbf1c7;
+      --text-muted: #d5c4a1;
+      --text-dim: #a89984;
+
+      --accent-red: #fb4934;
+      --accent-green: #b8bb26;
+      --accent-yellow: #fabd2f;
+      --accent-blue: #83a598;
+      --accent-purple: #d3869b;
+      --accent-aqua: #8ec07c;
+      --accent-orange: #fe8019;
+
+      --border-strong: #665c54;
+      --border-light: #3c3836;
+      --border-accent: #fabd2f;
+      --paper-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    :root[data-theme="light"] {
+      --bg-outer: #f2e5bc;
+      --bg-paper: #fbf1c7;
+      --bg-surface: #f9f5d7;
+      --bg-subtle: #ebdbb2;
+      --bg-hover: #d5c4a1;
+
+      --text-main: #3c3836;
+      --text-headings: #282828;
+      --text-muted: #504945;
+      --text-dim: #7c6f64;
+
+      --accent-red: #9d0006;
+      --accent-green: #79740e;
+      --accent-yellow: #b57614;
+      --accent-blue: #076678;
+      --accent-purple: #8f3f71;
+      --accent-aqua: #427b58;
+      --accent-orange: #af3a03;
+
+      --border-strong: #bdae93;
+      --border-light: #d5c4a1;
+      --border-accent: #b57614;
+      --paper-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ==========================================================================
+       RADIAL THEME SWITCH ANIMATION
+       ========================================================================== */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+
+    ::view-transition-old(root) {
+      z-index: 1;
+    }
+
+    ::view-transition-new(root) {
+      z-index: 9999;
+    }
+
+    body.theme-transitioning,
+    body.theme-transitioning * {
+      transition: background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease !important;
+    }
+
+    /* ==========================================================================
+       RESEARCH PAPER TYPOGRAPHY & LAYOUT
+       ========================================================================== */
+    body {
+      background-color: var(--bg-outer);
+      color: var(--text-main);
+      font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+      line-height: 1.55;
+      font-size: 1.05rem;
+      padding: 1.5rem 0.75rem 3rem;
+      margin: 0;
+    }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-orange);
+    }
+
+    code,
+    .font-mono {
+      font-family: 'Fira Code', Consolas, monospace;
+      font-size: 0.88em;
+    }
+
+    /* Floating Utility Bar (Preprint Header) */
+    .paper-floating-bar {
+      max-width: 1060px;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .paper-floating-btn {
+      background-color: var(--bg-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border-strong);
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .paper-floating-btn:hover {
+      background-color: var(--bg-hover);
+      color: var(--accent-yellow);
+      text-decoration: none;
+    }
+
+    .paper-floating-btn.primary {
+      background-color: var(--accent-yellow);
+      color: #282828;
+      border-color: var(--accent-yellow);
+    }
+
+    .paper-floating-btn.primary:hover {
+      background-color: var(--accent-orange);
+      color: #282828;
+    }
+
+    /* The Main Academic Paper Sheet */
+    .paper-sheet {
+      max-width: 1060px;
+      margin: 0 auto;
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-strong);
+      padding: 3rem 3.5rem;
+      box-shadow: var(--paper-shadow);
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .paper-sheet {
+        padding: 1.75rem 1.25rem;
+      }
+    }
+
+    /* Running Header */
+    .paper-running-head {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.4rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .paper-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 700;
+      font-size: 2.25rem;
+      text-align: center;
+      line-height: 1.25;
+      color: var(--text-headings);
+      margin-bottom: 1.25rem;
+    }
+
+    .paper-authors-block {
+      text-align: center;
+      font-family: 'Newsreader', Georgia, serif;
+      margin-bottom: 2rem;
+    }
+
+    .paper-author-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-headings);
+      display: block;
+    }
+
+    .paper-author-affiliations {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    .paper-author-contact {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+    }
+
+    /* Abstract & Keywords */
+    .paper-abstract-box {
+      margin: 1.5rem auto 2.25rem;
+      max-width: 90%;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      text-align: justify;
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 1rem 0;
+    }
+
+    .paper-abstract-label {
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text-headings);
+    }
+
+    .paper-keywords {
+      margin-top: 0.6rem;
+      font-size: 0.92rem;
+    }
+
+    .paper-keywords-label {
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text-headings);
+    }
+
+    /* LaTeX Double Horizontal Rule */
+    .latex-double-hrule {
+      border-top: 3px double var(--border-strong);
+      margin: 2rem 0 2.25rem;
+    }
+
+    /* Section Headings */
+    .paper-section-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-headings);
+      border-bottom: 1px solid var(--border-strong);
+      padding-bottom: 0.25rem;
+      margin-top: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .paper-section-title .sec-roman {
+      color: var(--accent-yellow);
+      margin-right: 0.35rem;
+    }
+
+    .paper-entry {
+      margin-bottom: 1.4rem;
+    }
+
+    .paper-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .paper-entry-name {
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: var(--text-headings);
+    }
+
+    .paper-entry-date {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    .paper-entry-sub {
+      font-size: 0.92rem;
+      color: var(--accent-green);
+      font-style: italic;
+      margin-bottom: 0.35rem;
+    }
+
+    .paper-entry-desc {
+      font-size: 0.95rem;
+      text-align: justify;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 0.18rem 0.55rem;
+      font-size: 0.78rem;
+      font-family: 'Fira Code', monospace;
+      font-weight: 500;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 3px;
+      color: var(--text-muted);
+    }
+
+    /* Classic Academic Table (Booktabs format) */
+    .table-booktabs {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.86rem;
+      margin: 1.25rem 0;
+    }
+
+    .table-booktabs th {
+      border-top: 2px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-strong);
+      padding: 6px 10px;
+      text-align: left;
+      color: var(--text-headings);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .table-booktabs td {
+      border-bottom: 1px solid var(--border-light);
+      padding: 6px 10px;
+      color: var(--text-main);
+      vertical-align: top;
+    }
+
+    .table-booktabs tr:last-child td {
+      border-bottom: 2px solid var(--border-strong);
+    }
+
+    /* Callout Box for Coursework / Special Highlights */
+    .paper-formula-box {
+      border: 1px solid var(--border-strong);
+      background-color: var(--bg-surface);
+      border-radius: 3px;
+      padding: 0.85rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+
+    .paper-formula-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-yellow);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Paper Footer */
+    .paper-footer-line {
+      margin-top: 3rem;
+      border-top: 1px solid var(--border-strong);
+      padding-top: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
 
-
-<style>
-
-
-</style>
-<canvas id="bgCanvas"></canvas>
-
 <body>
-  <div id="boxcontainer">
 
-    <div class="boxclass">
-      <table width="100%" border="0">
-        <tr>
-          <td style="padding-left:-20px;" rowspan="4"><a href="https://github.com/TheSerphh"><img style=""
-                class="imgclass1" src="./res/PXL_20230729_140247553.jpg" alt="souravImg"> </a> </td>
-          <td>
-            <p class="p1 gradient" style="font-weight: bold; font-size: 20px;">Sourav Gope</p>
-          </td>
-          <td rowspan="4" valign="top" class="download-cv-container">
-            <button id="downloadCV" class="download-cv-btn"><i class="fas fa-id-card"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p><i class="fa-solid fa-calendar-days"></i> Age: <span id="ageset">23</span></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Education: Btech@CSE</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Email: TheSerphh@duck.com</p>
-          </td>
-        </tr>
-      </table>
-      </p>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <p id="punhide">Hello there my name is Sourav Gope, I have completed my Btech In Computer Science &
-                Engineering and I
-                am currently
-                working as a Programmer Analyst at <a target="_blank" href="https://SRINSIGHTS.com"> Strategic Research
-                  Insights. </a> </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-      <center>
-        <table id="sociatable">
-          <tr>
-            <td>
-              <ul id="ul2id" style="margin-top:-15px;">
-                <li>
-                  <a target="_blank" href="https://t.me/TheSerphh">
-                    <i class="fas fa-paper-plane icon1"></i> </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://github.com/TheSerphh"><i class="fab fa-github icon1"></i></a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://leetcode.com/TheSerphh"><i class="fas fa-code-branch icon1"></i></a>
-                </li>
-                <li>
-                  <a href="mailto:TheSerphh@duck.com"><i class="fas fa-envelope icon1"></i></a>
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </table>
-      </center>
+  <!-- Floating Utility Bar (Preprint Header) -->
+  <aside class="paper-floating-bar">
+    <div class="d-flex align-items-center gap-2">
+      <span class="badge"
+        style="background-color: var(--accent-yellow); color: #282828; font-weight: 700;">PREPRINT</span>
+      <span class="d-none d-sm-inline" style="color: var(--text-muted);">Sourav Gope — Academic Portfolio</span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <span id="live-clock" class="d-none d-md-inline font-mono"
+        style="color: var(--accent-aqua); font-size: 0.8rem;"></span>
+      <button id="theme-toggle-btn" class="paper-floating-btn" title="Toggle Gruvbox Light/Dark Palette">
+        <i id="theme-icon" class="fa-solid fa-sun me-1"></i>
+        <span id="theme-label">Gruvbox Light</span>
+      </button>
+      <a href="resume.pdf" download="Sourav_Gope_Resume.pdf" class="paper-floating-btn primary"
+        title="Download Official Resume">
+        <i class="fa-solid fa-file-arrow-down me-1"></i> PDF
+      </a>
+    </div>
+  </aside>
+
+  <!-- The Two-Column Academic Paper Sheet -->
+  <main class="paper-sheet">
+
+    <!-- Paper Running Header -->
+    <!-- <div class="paper-running-head" id="running-head"></div> -->
+
+    <!-- Paper Masthead -->
+    <header class="text-center">
+      <h1 class="paper-title" id="paper-main-title"></h1>
+      <div class="paper-authors-block" id="paper-author-block"></div>
+      <div class="paper-abstract-box" id="paper-abstract-box"></div>
+      <div class="latex-double-hrule"></div>
+    </header>
+
+    <!-- Two-Column Body Grid (Populated dynamically from data.json) -->
+    <div class="row g-5">
+      <!-- Left Column -->
+      <div class="col-lg-6" id="paper-col-left"></div>
+
+      <!-- Right Column -->
+      <div class="col-lg-6" id="paper-col-right"></div>
     </div>
 
-    <!--Second Card-->
-    <table width="100%" border="0" style="margin-left: 10px;">
-      <tr>
-        <td>
-          <div width="100%" class="boxclass1">
-            <div id="blog-container" class="scrollable-content">
-              <!-- Blog posts will be dynamically inserted here -->
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <!--- Third card-->
-  <table width="100%">
-    <tr>
-      <td>
-        <div class="container">
-          <div class="chevron" data-scroll-to=".boxclass3"></div>
-          <div class="chevron" data-scroll-to=".boxclass3"></div>
-          <div class="chevron" data-scroll-to=".boxclass3"></div>
-        </div>
-
-      </td>
-    </tr>
-
-  </table>
-
-  <div class="container">
-
-    <section id="sectionToNavigate" style="height: 1000px; background-color:#ff000000">
-      <!-- Content of the section -->
-
-      <div class="boxclass3">
-
-
+    <!-- Paper Footer -->
+    <footer class="paper-footer-line">
+      <div>
+        <span></span>
       </div>
+      <div>
+        <span>Sourav Gope &copy; 2026</span>
+      </div>
+    </footer>
 
+  </main>
 
-    </section>
-
-  </div>
-
-  <div class="boxclassinfinite" hidden>
-
-    <div class="close-container close-btn">
-      <div class="leftright"></div>
-      <div class="rightleft"></div>
-      <label class="close">close</label>
-    </div>
-
-  </div>
-
+  <!-- Local Script File -->
+  <script src="app.js"></script>
 </body>
-
-<div class='cursor' id="cursor"></div>
-<div class='cursor2' id="cursor2"></div>
-<div class='cursor3' id="cursor3"></div>
-
-
-<script src="sourav-inline.js"></script>
 
 </html>
