@@ -101,13 +101,24 @@
     }
 
     // Live Clock
-    function updateClock() {
-        const clockElem = document.getElementById("live-clock");
-        if (clockElem) {
-            const now = new Date();
-            clockElem.textContent = now.toTimeString().split(" ")[0] + " IST";
-        }
+function updateClock() {
+    const clockElem = document.getElementById("live-clock");
+
+    if (clockElem) {
+        const now = new Date();
+
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+
+        const period = hours >= 12 ? "PM" : "AM";
+
+        hours = hours % 12 || 12;
+        hours = String(hours).padStart(2, "0");
+
+        clockElem.textContent = `${ hours }:${ minutes }:${ seconds }${ period } IST`;
     }
+}
 
     // Render Paper from JSON Data
     function renderPaper(data) {

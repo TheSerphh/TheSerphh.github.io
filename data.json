@@ -81,7 +81,7 @@
                     "company": "Strategic Research Insights LLP",
                     "period": "August 2023 – May 2026",
                     "location": "Hyderabad, Telangana",
-                    "role": "Analyst (Programming & Quality Control) / Programmer Analyst",
+                    "role": "Analyst (Programming & Quality Control)",
                     "summary": "Executed core pipeline development, automated data ingress, and analytical validation across multi-market enterprise survey research engagements:",
                     "highlights": [
                         "<strong>Survey Engineering:</strong> Programmed complex market research surveys and engineered structured data collection pipelines utilizing Sawtooth Lighthouse Studio, JavaScript, and Perl.",
